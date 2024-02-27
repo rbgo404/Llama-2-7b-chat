@@ -1,4 +1,4 @@
-# Llama-2-7B
+# Llama-2-7B-Chat
 Llama-2 7B is a language model developed by Meta AI, part of the Llama 2 family of models that range in scale from 7 billion to 70 billion parameters.
 ## Deploy Llama-2-7B using Inferless:
 - Deployment of Llama-2-7B model using [vLLM](https://github.com/vllm-project/vllm).
