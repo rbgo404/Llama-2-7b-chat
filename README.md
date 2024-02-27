@@ -1,6 +1,8 @@
-# Llama 2 - 7b with vLLM
-vLLM is a fast and easy-to-use library for LLM inference and serving. You can use this template to use vLLM in Inferless.
-
+# Llama-2-7B
+Llama-2 7B is a language model developed by Meta AI, part of the Llama 2 family of models that range in scale from 7 billion to 70 billion parameters.
+## Deploy Llama-2-7B using Inferless:
+- Deployment of Llama-2-7B model using [vLLM](https://github.com/vllm-project/vllm).
+- By using the vLLM, you can expect an average latency of 2.52 sec.
 ---
 ## Prerequisites
 - **Git**. You would need git installed on your system if you wish to customize the repo after forking.
