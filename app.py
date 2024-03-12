@@ -7,8 +7,8 @@ class InferlessPythonModel:
     def initialize(self):
         repo_id = "meta-llama/Llama-2-7b-chat-hf"  # Specify the model repository ID
         HF_TOKEN = os.getenv("HF_TOKEN")  # Access Hugging Face token from environment variable
-        volume_nfs = "/home/azureuser/Rajdeep/models"  # Define model storage location
-        model_dir = f"{volume_nfs}/{repo_id}"  # Construct model directory path
+        VOLUME_NFS = os.getenv("VOLUME_NFS")  # Define model storage location
+        model_dir = f"{VOLUME_NFS}/{repo_id}"  # Construct model directory path
         model_dir_path = Path(model_dir)  # Convert path to Path object
 
         # Create the model directory if it doesn't exist
