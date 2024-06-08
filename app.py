@@ -5,8 +5,8 @@ from pathlib import Path
 
 class InferlessPythonModel:
     def initialize(self):
-        repo_id = "meta-llama/Llama-2-7b-chat-hf"  # Specify the model repository ID
-        HF_TOKEN = os.getenv("HF_TOKEN")  # Access Hugging Face token from environment variable
+        repo_id = "TinyLlama/TinyLlama-1.1B-Chat-v1.0"  # Specify the model repository ID
+        HF_TOKEN = os.getenv("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")  # Access Hugging Face token from environment variable
         VOLUME_NFS = os.getenv("VOLUME_NFS")  # Define model storage location
         model_dir = f"{VOLUME_NFS}/{repo_id}"  # Construct model directory path
         model_dir_path = Path(model_dir)  # Convert path to Path object
@@ -14,13 +14,13 @@ class InferlessPythonModel:
         # Create the model directory if it doesn't exist
         if not model_dir_path.exists():
             model_dir_path.mkdir(exist_ok=True, parents=True)
-
-        # Download the model snapshot from Hugging Face Hub
-        snapshot_download(
-            repo_id,
-            local_dir=model_dir,
-            token=HF_TOKEN  # Provide token if necessary
-        )
+            
+            # Download the model snapshot from Hugging Face Hub
+            snapshot_download(
+                repo_id,
+                local_dir=model_dir,
+                token=HF_TOKEN  # Provide token if necessary
+            )
 
         # Define sampling parameters for model generation
         self.sampling_params = SamplingParams(temperature=0.7, top_p=0.95, max_tokens=256)
