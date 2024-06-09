@@ -8,23 +8,23 @@ from pathlib import Path
 class InferlessPythonModel:
 
     def initialize(self):
-        self.repo_id = "meta-llama/Llama-2-7b-chat-hf"  # Specify the model repository ID
-        self.HF_TOKEN = "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"  # Access Hugging Face token from environment variable
-        self.VOLUME_NFS = os.getenv("VOLUME_NFS")  # Define model storage location
+        repo_id = "meta-llama/Llama-2-7b-chat-hf"  # Specify the model repository ID
+        HF_TOKEN = "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"  # Access Hugging Face token from environment variable
+        VOLUME_NFS = os.getenv("VOLUME_NFS")  # Define model storage location
 
         # Construct model directory path
-        self.model_dir = f"{self.VOLUME_NFS}/{self.repo_id}"
-        self.model_dir_path = Path(self.model_dir)
+        model_dir = f"{VOLUME_NFS}/{repo_id}"
+        model_dir_path = Path(model_dir)
 
         # Create the model directory if it doesn't exist
-        if not self.model_dir_path.exists():
-            self.model_dir_path.mkdir(exist_ok=True, parents=True)
+        if not model_dir_path.exists():
+            model_dir_path.mkdir(exist_ok=True, parents=True)
 
             # Download the model snapshot from Hugging Face Hub (excluding specific file types)
             snapshot_download(
-                self.repo_id,
-                local_dir=self.model_dir,
-                token=self.HF_TOKEN,  # Provide token if necessary
+                repo_id,
+                local_dir=model_dir,
+                token=HF_TOKEN,  # Provide token if necessary
                 ignore_patterns=["*.pt", "*.gguf"],
             )
 
@@ -39,10 +39,10 @@ class InferlessPythonModel:
         )
 
         # Initialize the LLM object with the downloaded model directory
-        self.llm = LLM(model=self.model_dir)
+        self.llm = LLM(model=model_dir)
 
         # Load the tokenizer associated with the pre-trained model
-        self.tokenizer = AutoTokenizer.from_pretrained(self.repo_id, token=self.HF_TOKEN)
+        self.tokenizer = AutoTokenizer.from_pretrained(repo_id, token=HF_TOKEN)
 
     def infer(self, inputs):
         prompts = inputs["prompt"]  # Extract the prompt from the input
