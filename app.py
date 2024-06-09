@@ -9,8 +9,8 @@ class InferlessPythonModel:
 
     def initialize(self):
         repo_id = "TinyLlama/TinyLlama-1.1B-Chat-v1.0"  # Specify the model repository ID
-        HF_TOKEN = os.getenv("HF_TOKEN") # Access Hugging Face token from environment variable
-        VOLUME_NFS = os.getenv("VOLUME_NFS")  # Define model storage location
+        HF_TOKEN = "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" # Access Hugging Face token from environment variable
+        VOLUME_NFS = "/var/nfs-mount/llama-2-vol"  # Define model storage location
 
         # Construct model directory path
         model_dir = f"{VOLUME_NFS}/{repo_id}"
