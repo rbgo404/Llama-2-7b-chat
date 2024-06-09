@@ -9,7 +9,7 @@ class InferlessPythonModel:
 
     def initialize(self):
         repo_id = "meta-llama/Llama-2-7b-chat-hf"  # Specify the model repository ID
-        HF_TOKEN = "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"  # Access Hugging Face token from environment variable
+        HF_TOKEN = os.getenv("HF_TOKEN") # Access Hugging Face token from environment variable
         VOLUME_NFS = os.getenv("VOLUME_NFS")  # Define model storage location
 
         # Construct model directory path
