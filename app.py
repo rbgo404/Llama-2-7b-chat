@@ -8,7 +8,7 @@ from pathlib import Path
 class InferlessPythonModel:
 
     def initialize(self):
-        repo_id = "meta-llama/Llama-2-7b-chat-hf"  # Specify the model repository ID
+        repo_id = "TinyLlama/TinyLlama-1.1B-Chat-v1.0"  # Specify the model repository ID
         HF_TOKEN = os.getenv("HF_TOKEN") # Access Hugging Face token from environment variable
         VOLUME_NFS = os.getenv("VOLUME_NFS")  # Define model storage location
 
