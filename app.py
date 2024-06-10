@@ -35,7 +35,7 @@ class InferlessPythonModel:
             top_p=0.1,
             repetition_penalty=1.18,
             top_k=40,
-            max_tokens=512,
+            max_tokens=128,
         )
 
         # Initialize the LLM object with the downloaded model directory
