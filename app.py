@@ -47,7 +47,7 @@ class InferlessPythonModel:
         
         generated_ids = self.model.generate(input_ids)
         
-        result = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
+        result = self.tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
 
         return {"generated_result": result}
 
