@@ -8,7 +8,7 @@ from pathlib import Path
 class InferlessPythonModel:
 
     def initialize(self):
-        repo_id = "TheBloke/phi-2-GPTQ"  # Specify the model repository ID
+        repo_id = "kaitchup/Phi-3-mini-4k-instruct-gptq-4bit"  # Specify the model repository ID
         HF_TOKEN = "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" # Access Hugging Face token from environment variable
         VOLUME_NFS = "/var/nfs-mount/llama-2-vol"  # Define model storage location
 
