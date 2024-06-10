@@ -39,7 +39,7 @@ class InferlessPythonModel:
         )
 
         # Initialize the LLM object with the downloaded model directory
-        self.llm = LLM(model=model_dir,quantization="gptq",trust_remote_code=True)
+        self.llm = LLM(model=model_dir,quantization="gptq",dtype="float16" ,trust_remote_code=True)
 
         # Load the tokenizer associated with the pre-trained model
         self.tokenizer = AutoTokenizer.from_pretrained(repo_id, token=HF_TOKEN)
