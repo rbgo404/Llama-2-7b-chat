@@ -13,7 +13,7 @@ class InferlessPythonModel:
         VOLUME_NFS = "/var/nfs-mount/llama-2-vol"  # Define model storage location
 
         # Construct model directory path
-        model_dir = f"{VOLUME_NFS}/{repo_id}"
+        model_dir = f"{VOLUME_NFS}/{model_id}"
         model_dir_path = Path(model_dir)
 
         # Create the model directory if it doesn't exist
@@ -22,7 +22,7 @@ class InferlessPythonModel:
 
             # Download the model snapshot from Hugging Face Hub (excluding specific file types)
             snapshot_download(
-                repo_id,
+                model_id,
                 local_dir=model_dir,
                 token=HF_TOKEN,  # Provide token if necessary
                 ignore_patterns=["*.pt", "*.gguf"],
@@ -43,14 +43,11 @@ class InferlessPythonModel:
         # from transformers import AutoModelForCausalLM, AutoTokenizer
         # import torch
         
-        
-        prompt = "Hello, I'm am conscious and"
-        
         input_ids = self.tokenizer(prompt, return_tensors="pt").input_ids.cuda()
         
         generated_ids = self.model.generate(input_ids)
         
-        reuslt = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
+        result = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
 
         return {"generated_result": result}
 
