@@ -38,7 +38,7 @@ class InferlessPythonModel:
 
 
     def infer(self, inputs):
-        prompts = inputs["prompt"]  # Extract the prompt from the input
+        prompt = inputs["prompt"]  # Extract the prompt from the input
 
         # from transformers import AutoModelForCausalLM, AutoTokenizer
         # import torch
